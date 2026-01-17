@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <em>For interface design — dashboards, apps, tools, admin panels. Not for marketing sites.</em>
+</p>
+
+<p align="center">
   <a href="#installation">Install</a> ·
   <a href="#how-it-works">How It Works</a> ·
   <a href="#examples">Examples</a> ·
@@ -23,7 +27,7 @@ When you build UI with Claude, design decisions get made: spacing values, colors
 
 **Design Engineer helps you:**
 
-1. **Craft** — Smart direction inference (dashboard → precision, marketing → bold)
+1. **Craft** — Smart direction inference (dashboard → precision, settings → utility)
 2. **Memory** — Save decisions to `.design-engineer/system.md`, load automatically
 3. **Enforcement** — Validate UI code against your system, catch violations before you see them
 
@@ -49,24 +53,31 @@ See the difference: **[dashboard-v4-eta.vercel.app](https://dashboard-v4-eta.ver
 
 ## Installation
 
-### Plugin (Recommended - Full Features)
+### Plugin (Recommended)
 
 ```bash
-/plugin install oakinleye/design-engineer
+# Add the marketplace
+/plugin marketplace add Dammyjay93/claude-design-engineer
+
+# Install the plugin
+/plugin menu
 ```
 
+Select `design-engineer` from the menu. Restart Claude Code after.
+
 Gets you:
-- ✅ Smart workflows (APPLY, ESTABLISH, EXTEND modes)
-- ✅ Automatic system.md loading every session
-- ✅ Post-write validation hooks
-- ✅ Commands (/design-engineer status, audit, extract)
+- Smart workflows (APPLY, ESTABLISH, EXTEND modes)
+- Automatic system.md loading every session
+- Post-write validation hooks
+- Commands (/design-engineer status, audit, extract)
 
 ### Manual (Advanced)
 
 ```bash
-git clone https://github.com/Dammyjay93/design-engineer.git
-cd design-engineer
-cp -r . ~/.claude/plugins/design-engineer
+git clone https://github.com/Dammyjay93/claude-design-engineer.git
+cd claude-design-engineer
+cp -r .claude/* ~/.claude/
+cp -r .claude-plugin/* ~/.claude-plugin/
 ```
 
 Restart Claude Code.
@@ -189,10 +200,10 @@ This file loads automatically at session start. Claude sees it and maintains con
 ## Commands
 
 ```bash
-/design-engineer              # Smart status/suggestions
-/design-engineer status       # Show current system
-/design-engineer audit <path> # Check code against system
-/design-engineer extract      # Extract patterns from existing code
+/design-engineer:init           # Smart dispatcher (detects mode automatically)
+/design-engineer:status         # Show current system
+/design-engineer:audit <path>   # Check code against system
+/design-engineer:extract        # Extract patterns from existing code
 ```
 
 ---
@@ -206,7 +217,7 @@ The skill infers direction from project context, but you can customize:
 | **Precision & Density** | Tight, technical, monochrome | Developer tools, admin dashboards |
 | **Warmth & Approachability** | Generous spacing, soft shadows | Collaborative tools, consumer apps |
 | **Sophistication & Trust** | Cool tones, layered depth | Finance, enterprise B2B |
-| **Boldness & Clarity** | High contrast, dramatic space | Marketing sites, modern dashboards |
+| **Boldness & Clarity** | High contrast, dramatic space | Modern dashboards, data-heavy apps |
 | **Utility & Function** | Muted, functional density | GitHub-style tools |
 | **Data & Analysis** | Chart-optimized, numbers-first | Analytics, BI tools |
 
@@ -244,9 +255,9 @@ See `reference/examples/` for complete system files:
 
 ## Migration from claude-design-skill
 
-**This repo was renamed from `claude-design-skill` (983⭐).**
+**This repo was renamed from `claude-design-skill`.**
 
-All old URLs redirect automatically
+All old URLs redirect automatically.
 
 **If you installed the old skill:**
 
@@ -255,7 +266,8 @@ All old URLs redirect automatically
 rm -rf ~/.claude/skills/design-principles
 
 # Install new plugin
-/plugin install oakinleye/design-engineer
+/plugin marketplace add Dammyjay93/claude-design-engineer
+/plugin menu
 ```
 
 Your system.md files (if any) continue to work — just rename `.ds-engineer/` to `.design-engineer/`.
@@ -279,5 +291,5 @@ MIT — See [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  Part of <a href="https://github.com/Dammyjay93/oakinleye">oakinleye</a> plugin collection
+  <a href="https://design-engineer.vercel.app">Website</a> · <a href="https://github.com/Dammyjay93/claude-design-engineer">GitHub</a>
 </p>

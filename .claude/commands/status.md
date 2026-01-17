@@ -1,3 +1,8 @@
+---
+name: design-engineer:status
+description: Show current design system state including direction, tokens, and patterns.
+---
+
 # design-engineer status
 
 Show current design system state.
@@ -34,7 +39,7 @@ No design system found.
 
 Options:
 1. Build UI → system will be established automatically
-2. Run /design-engineer extract → pull patterns from existing code
+2. Run /design-engineer:extract → pull patterns from existing code
 ```
 
 ## Implementation
